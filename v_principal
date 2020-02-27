@@ -1,0 +1,77 @@
+package Vista;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+
+/**
+ *
+ * @author dell
+ */
+public class V_Principal extends JFrame {
+
+    JFrame ventana = new JFrame();
+    JMenuBar menu = new JMenuBar();
+    JMenu menu1;
+    JMenuItem miCrear, miAleatorio, miSalir;
+
+    public V_Principal() {
+        ventana.setTitle("Vista");
+        ventana.setSize(500, 400);
+        ventana.setLocation(200, 200);
+        iniciarComponentes();
+        ventana.setVisible(true);
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+
+    public void iniciarComponentes() {
+        ventana.setJMenuBar(menu);
+        menu1 = new JMenu("Programas");
+        menu.add(menu1);
+
+        miCrear = new JMenuItem("V_Crear_Alumnos");
+        miCrear.addActionListener(new OyenteVentanaPrincipal());
+        menu1.add(miCrear);
+
+        miAleatorio = new JMenuItem("V_AleatorioAlumno");
+        miAleatorio.addActionListener(new OyenteVentanaPrincipal());
+        menu1.add(miAleatorio);
+
+        miSalir = new JMenuItem("Salir");
+        miSalir.addActionListener(new OyenteVentanaPrincipal());
+        menu1.add(miSalir);
+    }
+
+    public Object getMiSalir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Object getMiAleatorio() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Object getCrear() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public class OyenteVentanaPrincipal implements ActionListener {
+
+        public void actionPerformed(ActionEvent e) {
+            if (e.getSource() == miSalir) {
+                System.exit(0);
+            }
+            if (e.getSource() == miAleatorio) {
+                new V_AleatorioAlumno();
+            }
+            if (e.getSource() == miCrear) {
+                new V_Crear_Alumnos();
+
+            }
+        }
+
+    }
+}
