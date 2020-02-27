@@ -1,0 +1,7 @@
+package Main;
+ import Vista.V_Principal;
+public class Main {
+            public static void main (String[] args){
+                 V_principal vp = new V_Principal();
+   }
+}
